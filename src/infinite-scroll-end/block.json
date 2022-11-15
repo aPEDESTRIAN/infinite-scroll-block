@@ -1,0 +1,17 @@
+{
+   "$schema": "https://schemas.wp.org/trunk/block.json",
+   "apiVersion": 2,
+   "name": "apedestrian/infinite-scroll-end",
+   "title": "No More Posts",
+   "icon": "ellipsis",
+   "category": "theme",
+   "description": "Contains the elements that are displayed when there are no more posts to fetch (optional block).",
+   "parent": ["apedestrian/infinite-scroll"],
+   "supports": {
+      "align": true,
+      "reusable": false,
+      "html": false
+   },
+   "example": {},
+   "editorScript": "file:./editor.js"
+}

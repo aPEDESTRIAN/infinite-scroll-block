@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "apedestrian/infinite-scroll",
+  "title": "Infinite Scroll",
+  "icon": "ellipsis",
+  "category": "theme",
+  "description": "Implements inifnite scroll functionality. The number of posts loaded when triggered is equivalent to the Query Loops 'Items Per Page' setting.",
+  "parent": [
+    "core/query"
+  ],
+  "usesContext": [
+    "queryId",
+    "query"
+  ],
+  "supports": {
+    "align": true,
+    "reusable": false,
+    "html": false
+  },
+  "attributes": {
+    "loadingDistance": {
+      "type": "string",
+      "default": "1200"
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}
