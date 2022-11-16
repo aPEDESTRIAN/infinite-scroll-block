@@ -93,7 +93,7 @@ $settings = array(
 );
 
 ?>
-<div <?php echo get_block_wrapper_attributes(['id' => 'apedestrian-infinite-scroll' . (isset($block->context['queryId']) ? '-'.block->context['queryId'] : '')]); ?>>
+<div <?php echo get_block_wrapper_attributes(['id' => 'apedestrian-infinite-scroll' . (isset($block->context['queryId']) ? '-' . $block->context['queryId'] : '')]); ?>>
 	<pre class="apedestrian-infinite-scroll-data" style="display:none"><?php echo wp_json_encode($settings); ?></pre>
 	<?php echo $content; ?>
 </div>
