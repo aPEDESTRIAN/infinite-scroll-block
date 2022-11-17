@@ -77,9 +77,9 @@ function tryToLoadNextPage(queryId) {
 
 function disableAndCleanUpInfinteScrollBlock(queryId) {
    // Show the no more posts elements
-   const endBlocks = document.querySelectorAll(`#${dataCache[queryId].elementId} .wp-block-${blockName}-end`);
+   const endBlocks = document.querySelectorAll(`#${dataCache[queryId].elementId} .wp-block-${blockName}-end--hidden`);
    endBlocks.forEach((block) => {
-      block.style.removeProperty ? block.style.removeProperty("display") : block.style.removeAttribute("display");
+      block.classList.remove(`wp-block-${blockName}-end--hidden`);
    });
 
    // Remove all loading elements

@@ -1,4 +1,4 @@
-import "./editor.css"; // Even through editor.css is empty, it is required we have one stylesheet per block to be considered for block repo
+import "./index.scss";
 import { registerBlockType } from "@wordpress/blocks";
 import { PanelBody, PanelRow, BaseControl, Button, Popover } from "@wordpress/components";
 import { InspectorControls, InnerBlocks, useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
@@ -58,10 +58,9 @@ function EditComponent() {
 function Throbber() {
    return (
       <>
-         <style>{`.ellipsis-throbber *{display:inline-block;animation:ellipsis-scale 1.2s infinite ease-out}@keyframes ellipsis-scale{0%,100%{transform:scale(0.2)}50%{transform: scale(1)}}`}</style>
          <span className="ellipsis-throbber">
-            <span style={{ animationDelay: "-0.6s" }}>&#9679;</span>
-            <span style={{ animationDelay: "-0.3s" }}>&#9679;</span>
+            <span>&#9679;</span>
+            <span>&#9679;</span>
             <span>&#9679;</span>
          </span>
       </>

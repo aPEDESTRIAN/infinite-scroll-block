@@ -1,4 +1,4 @@
-import "./editor.css"; // Even through editor.css is empty, it is required we have one stylesheet per block to be considered for block repo
+import "./index.css";
 import { registerBlockType } from "@wordpress/blocks";
 import { InnerBlocks, useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
 
@@ -12,8 +12,12 @@ registerBlockType("apedestrian/infinite-scroll-end", {
          />
       </div>
    ),
-   save: () => (
-      <div {...useBlockProps.save()} style={{ display: "none" }}>
+   save: (props) => (
+      <div
+         {...useBlockProps.save({
+            className: "wp-block-apedestrian-infinite-scroll-end--hidden",
+         })}
+      >
          <InnerBlocks.Content />
       </div>
    ),
