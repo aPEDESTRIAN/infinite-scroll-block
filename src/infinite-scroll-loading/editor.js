@@ -1,3 +1,4 @@
+import "./editor.css"; // Even through editor.css is empty, it is required we have one stylesheet per block to be considered for block repo
 import { registerBlockType } from "@wordpress/blocks";
 import { PanelBody, PanelRow, BaseControl, Button, Popover } from "@wordpress/components";
 import { InspectorControls, InnerBlocks, useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";

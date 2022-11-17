@@ -15,5 +15,6 @@
     "html": false
   },
   "example": {},
-  "editorScript": "file:./editor.js"
+  "editorScript": "file:./editor.js",
+  "editorStyle": "file:./editor.css"
 }
