@@ -1,1 +1,1 @@
-.ellipsis-throbber *{animation:ellipsis-scale 1.2s ease-out infinite;display:inline-block}.ellipsis-throbber :nth-of-type(1n){animation-delay:-.6s}.ellipsis-throbber :nth-of-type(2n){animation-delay:-.3s}@keyframes ellipsis-scale{0%,to{transform:scale(.2)}50%{transform:scale(1)}}
+.ellipsis-throbber *{animation:ellipsis-scale 1.2s ease-out infinite;display:inline-block}.ellipsis-throbber :nth-of-type(3n){animation-delay:.6s}.ellipsis-throbber :nth-of-type(2n){animation-delay:.3s}@keyframes ellipsis-scale{0%,to{transform:scale(.2)}50%{transform:scale(1)}}
