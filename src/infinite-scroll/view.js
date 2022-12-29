@@ -48,7 +48,7 @@ function tryToLoadNextPage(queryId) {
          // Extract all the posts if we have a list
          const posts = [];
          if (templateBlock) {
-            templateBlock.querySelectorAll("li").forEach((li) => {
+            templateBlock.querySelectorAll("li.wp-block-post").forEach((li) => {
                posts.push(li);
             });
          }
