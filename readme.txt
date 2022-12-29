@@ -1,7 +1,7 @@
 === Infinite Scroll Block ===
 Contributors: apedestrian
 Donate link: https://www.paypal.com/donate/?hosted_button_id=JTBPY8ZWAXG6N
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Tested up to: 6.1.1
 Tags: full site editing, fse, gutenberg, blocks, infinite scroll
 License: GPLv2 or later
