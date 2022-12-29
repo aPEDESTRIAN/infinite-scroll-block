@@ -19,3 +19,8 @@ The blocks frontend script will detect when the user is 1200px (default value) f
 
 = Additional Note =
 While you can add more than one Infinite Scroll Block inside of a Query Loop Block, you should not. The block was originally constrained to only one per page (multiple = false) but was removed in order to support multiple query blocks on the same page.
+
+== Changelog ==
+
+= 1.0.1 =
+* Fixed issue where a list element inside of a posts content would be stripped out and placed into the query block list
