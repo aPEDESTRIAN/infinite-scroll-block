@@ -14,7 +14,8 @@
       "html": false
    },
    "attributes": {
-      "loadingDistance": { "type": "string", "default": "1200" }
+      "loadingDistance": { "type": "string", "default": "1200" },
+	  "ignoreStickyPosts": { "type": "boolean", "default": true }
    },
    "editorScript": "file:./editor.js",
    "editorStyle": "file:./editor.css",

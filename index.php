@@ -3,7 +3,7 @@
 /*
 	Plugin Name: Infinite Scroll Block
 	Description: Adds an infinite scroll block to the full site editor that can be placed inside a Query Loop to replace classic pagination.
-	Version: 1.0.1
+	Version: 1.0.3
 	Author: aPEDESTRIAN
 	Author URI: https://github.com/apedestrian/
 	Plugin URI: https://github.com/apedestrian/infinite-scroll-block

@@ -35,8 +35,7 @@ function watchForInfiniteScrollBlock(queryId) {
 }
 
 function tryToLoadNextPage(queryId) {
-   const requestURL = dataCache[queryId].urlPattern.replace("{pageNum}", ++dataCache[queryId].currentPage);
-   fetch(requestURL)
+   fetch(`?query-${queryId}-page=${++dataCache[queryId].currentPage}`)
       .then((response) => response.text())
       .then((html) => {
          const parser = new DOMParser();
@@ -49,15 +48,23 @@ function tryToLoadNextPage(queryId) {
          const posts = [];
          if (templateBlock) {
             templateBlock.querySelectorAll("li.wp-block-post").forEach((li) => {
-               posts.push(li);
+				var ignoreListItem = false;
+				for (const postId of dataCache[queryId].postsToIgnore) {
+					if (li.classList.contains(`post-${postId}`)) {
+						ignoreListItem = true;
+						break;
+					}
+				}
+
+				// We only want to push posts that are not in our ignore array
+				if (ignoreListItem === false) {
+					posts.push(li);
+				}
             });
          }
 
          // Were there any posts?
-         if (posts.length === 0) {
-            // If not, then were on the last page. We're done!
-            disableAndCleanUpInfinteScrollBlock(queryId);
-         } else {
+         if (posts.length > 0) {
             // Display content
             const infiniteScrollBlock = document.getElementById(dataCache[queryId].elementId);
             const queryBlock = infiniteScrollBlock ? infiniteScrollBlock.closest(".wp-block-query") : null;
@@ -66,11 +73,11 @@ function tryToLoadNextPage(queryId) {
                posts.forEach((post) => {
                   templateBlock.appendChild(post);
                });
-               lastPageHasLoaded(queryId) ? disableAndCleanUpInfinteScrollBlock(queryId) : watchForInfiniteScrollBlock(queryId);
             } else {
                disableAndCleanUpInfinteScrollBlock(queryId);
             }
          }
+		 lastPageHasLoaded(queryId) ? disableAndCleanUpInfinteScrollBlock(queryId) : watchForInfiniteScrollBlock(queryId);
       })
       .catch(/* Silence is golden */);
 }
@@ -93,5 +100,5 @@ function disableAndCleanUpInfinteScrollBlock(queryId) {
 }
 
 function lastPageHasLoaded(queryId) {
-   return dataCache[queryId].urlPattern == "" || (dataCache[queryId].maxPage !== 0 && dataCache[queryId].maxPage === dataCache[queryId].currentPage);
+   return dataCache[queryId].totalPages === dataCache[queryId].currentPage || dataCache[queryId].maxPage === dataCache[queryId].currentPage;
 }
