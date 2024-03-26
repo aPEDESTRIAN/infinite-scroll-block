@@ -26,5 +26,5 @@ While you can add more than one Infinite Scroll Block inside of a Query Loop Blo
 
 = 1.0.3 =
 * Fixed issue where sticky posts would we included in every single fetch request (Added optional flag to keep this functionality)
-* Fixed inifnite loop where sticky posts would continue to load even after all posts have been loaded
+* Fixed infinite  loop where sticky posts would continue to load even after all posts have been loaded
 * Removed throbber editor panel because it was not intuitive to use (kept styles for backwards compatibility)
