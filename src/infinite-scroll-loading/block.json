@@ -1,18 +1,18 @@
 {
-   "$schema": "https://schemas.wp.org/trunk/block.json",
-   "apiVersion": 2,
-   "name": "apedestrian/infinite-scroll-loading",
-   "title": "Loading Posts",
-   "icon": "ellipsis",
-   "category": "theme",
-   "description": "Contains the elements that are displayed while loading posts (optional block).",
-   "parent": ["apedestrian/infinite-scroll"],
-   "supports": {
-      "align": true,
-      "reusable": false,
-      "html": false
-   },
-   "example": {},
-   "editorScript": "file:./editor.js",
-   "style": "file:./index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "apedestrian/infinite-scroll-loading",
+	"title": "Loading Posts",
+	"icon": "ellipsis",
+	"category": "theme",
+	"description": "Contains the elements that are displayed while loading posts (optional block).",
+	"parent": ["apedestrian/infinite-scroll"],
+	"supports": {
+		"align": true,
+		"reusable": false,
+		"html": false
+	},
+	"example": {},
+	"editorScript": "file:./editor.js",
+	"style": "file:./editor.css"
 }

@@ -1,6 +1,6 @@
 === Infinite Scroll Block ===
 Contributors: apedestrian
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 Tested up to: 6.4.3
 Tags: full site editing, fse, gutenberg, blocks, infinite scroll
 License: GPLv2 or later
@@ -16,15 +16,16 @@ The blocks frontend script will detect when the user is 1200px (default value) f
 -  Loading Posts Block: Container that will display its content while more posts are loading
 -  No More Posts Block: Container that will display when there are no more posts to load in
 
-= Additional Note =
-While you can add more than one Infinite Scroll Block inside of a Query Loop Block, you should not. The block was originally constrained to only one per page (multiple = false) but was removed in order to support multiple query blocks on the same page.
+= Additional Notes =
+* Adding more than one Post Template Block to a Query Block has undefined behavior.
+* Adding more than one Infinite Scroll Block to a Query Block has undefined behavior.
 
 == Changelog ==
 
 = 1.0.1 =
 * Fixed issue where a list element inside of a posts content would be stripped out and placed into the query block list
 
-= 1.0.3 =
-* Fixed issue where sticky posts would we included in every single fetch request (Added optional flag to keep this functionality)
-* Fixed infinite  loop where sticky posts would continue to load even after all posts have been loaded
+= 1.1.0 =
+* Fixed issue where sticky posts would we included in every single fetch request
+* Fixed infinite loop where sticky posts would continue to load even after all posts have been loaded
 * Removed throbber editor panel because it was not intuitive to use (kept styles for backwards compatibility)

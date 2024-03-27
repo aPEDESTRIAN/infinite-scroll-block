@@ -1,29 +1,21 @@
 <?php defined('ABSPATH') || exit;
 
-// Get the current page
-$page_key = isset($block->context['queryId']) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
-$page = empty($_GET[$page_key]) ? 1 : (int) $_GET[$page_key];
+// Get next page link then use preg_match to extract the href
+$next_page_content = '';
+$next_page_content = render_block_core_query_pagination_next($attributes, $next_page_content, $block);
+$link = preg_match('/href="([^"]*)"/', $next_page_content, $matches) ? $matches[1] : '';
 
-// Get the total number of pages for this query
-$total_pages = 0;
-$custom_query = new WP_Query(build_query_vars_from_query_block($block, $page));
-$total_pages = $custom_query->max_num_pages;
+$query_id = isset($block->context['queryId']) ? $block->context['queryId'] : 'main-query';
 
-// Sticky post filter logic
-$sticky_posts = isset($attributes['ignoreStickyPosts']) && $attributes['ignoreStickyPosts'] == true ? get_option('sticky_posts') : array();
-
-
-$settings = array(
+$data = array(
 	'loadingDistance' => isset($attributes['loadingDistance']) ? (int) $attributes['loadingDistance'] : 1200,
-	'queryId' => isset($block->context['queryId']) ? $block->context['queryId'] : '',
-	'maxPage' => isset($block->context['query']['pages']) ? (int) $block->context['query']['pages'] : 0,
-	'currentPage' => $page,
-	'totalPages' => $total_pages,
-	'postsToIgnore' => $sticky_posts
+	'stickyPosts' => isset($attributes['ignoreStickyPosts']) && $attributes['ignoreStickyPosts'] == true ? get_option('sticky_posts') : array(),
+	'nextPageLink' => $link,
+	'queryId' => $query_id
 );
 
 ?>
-<div <?php echo wp_kses_data(get_block_wrapper_attributes(['id' => 'apedestrian-infinite-scroll' . (isset($block->context['queryId']) ? '-' . $block->context['queryId'] : '')])); ?>>
-	<pre class="apedestrian-infinite-scroll-data" style="display:none"><?php echo esc_js(wp_json_encode($settings)); ?></pre>
+<div <?php echo wp_kses_data(get_block_wrapper_attributes(['id' => 'apedestrian-infinite-scroll-' . $query_id])); ?>>
+	<pre class="apedestrian-infinite-scroll-data" style="display:none"><?php echo esc_js(wp_json_encode($data)); ?></pre>
 	<?php echo wp_kses_post($content); ?>
 </div>

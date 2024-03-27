@@ -1,21 +1,21 @@
 .ellipsis-throbber * {
 	display: inline-block;
 	animation: ellipsis-scale 1.2s infinite ease-out;
- 
+
 	&:nth-of-type(3n) {
-	   animation-delay: 0.6s;
+		animation-delay: 0.6s;
 	}
- 
+
 	&:nth-of-type(2n) {
-	   animation-delay: 0.3s;
+		animation-delay: 0.3s;
 	}
- }
- @keyframes ellipsis-scale {
+}
+@keyframes ellipsis-scale {
 	0%,
 	100% {
-	   transform: scale(0.2);
+		transform: scale(0.2);
 	}
 	50% {
-	   transform: scale(1);
+		transform: scale(1);
 	}
- }
+}
